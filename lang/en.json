@@ -1,0 +1,142 @@
+{
+  "welcome": {
+    "title": "Welcome to Pelvic Floor Training",
+    "subtitle": "Professional pelvic floor exercise guidance to improve your health"
+  },
+  "nav": {
+    "home": "Home",
+    "plans": "Plans",
+    "stats": "Stats",
+    "settings": "Settings"
+  },
+  "home": {
+    "quick_start": "🎯 Quick Start (Beginner)",
+    "choose_plan": "📋 Choose Other Plans:",
+    "custom_plan": "Custom",
+    "custom_desc": "Set custom parameters",
+    "progress": "Progress", 
+    "settings": "Settings"
+  },
+  "plans": {
+    "title": "Training Plans",
+    "custom": "+ Custom",
+    "beginner": {
+      "title": "Beginner",
+      "desc": "Contract 3s, Relax 3s",
+      "sets": "10 reps × 3 sets"
+    },
+    "intermediate": {
+      "title": "Intermediate",
+      "desc": "Contract 5s, Relax 5s",
+      "sets": "15 reps × 3 sets"
+    },
+    "advanced": {
+      "title": "Advanced",
+      "desc": "Contract 8s, Relax 8s",
+      "sets": "20 reps × 4 sets"
+    }
+  },
+  "exercise": {
+    "prepare": "Get Ready",
+    "contract": "Contract Phase",
+    "relax": "Relax Phase",
+    "rest": "Rest Between Sets",
+    "complete": "Exercise Complete",
+    "ready": "Ready to Start",
+    "contracting": "Hold contraction...",
+    "relaxing": "Relax muscles...",
+    "resting": "Rest between sets...",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "set_info": "Set",
+    "set_of": "of",
+    "sets": ""
+  },
+  "stats": {
+    "title": "Exercise Statistics",
+    "week": "This Week",
+    "month": "This Month",
+    "year": "This Year",
+    "sessions": "Sessions",
+    "duration": "Duration (min)",
+    "streak": "Streak (days)",
+    "achievements": "Achievements"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General Settings",
+    "sound": "Sound Alerts",
+    "vibration": "Vibration Feedback",
+    "reminder": "Daily Reminder",
+    "data": "Data Management",
+    "export": "Export Data",
+    "clear": "Clear Data",
+    "about": "About",
+    "version": "Version: 1.0.0",
+    "privacy": "Completely anonymous, data stored locally only"
+  },
+  "achievements": {
+    "first_session": {
+      "name": "First Try",
+      "desc": "Complete your first session"
+    },
+    "week_streak": {
+      "name": "Week Warrior",
+      "desc": "Exercise for 7 consecutive days"
+    },
+    "month_streak": {
+      "name": "Month Master",
+      "desc": "Exercise for 30 consecutive days"
+    },
+    "sessions_50": {
+      "name": "Dedication",
+      "desc": "Complete 50 sessions"
+    },
+    "sessions_100": {
+      "name": "Persistence",
+      "desc": "Complete 100 sessions"
+    },
+    "total_hours_10": {
+      "name": "Time Master",
+      "desc": "Accumulate 10 hours of training"
+    }
+  },
+  "dialog": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "clear_data": {
+      "title": "Clear Data",
+      "message": "Are you sure you want to clear all training data? This action cannot be undone."
+    },
+    "exercise_incomplete": {
+      "title": "Exit Exercise",
+      "message": "Exercise is not complete. Are you sure you want to exit?"
+    }
+  },
+  "messages": {
+    "data_exported": "Data exported to downloads folder",
+    "data_cleared": "All data has been cleared",
+    "settings_saved": "Settings saved",
+    "exercise_paused": "Exercise paused",
+    "exercise_completed": "Exercise completed! Congratulations!",
+    "plan_selected": "Training plan selected"
+  },
+  "time": {
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "hours": "hours"
+  },
+  "custom": {
+    "title": "⚙️ Customize Your Training Plan",
+    "contract_time": "Contract Time",
+    "relax_time": "Relax Time",
+    "repetitions": "Repetitions", 
+    "sets": "Sets",
+    "rest_time": "Rest Time Between Sets",
+    "estimated_duration": "Estimated Duration: ",
+    "cancel": "Cancel",
+    "start": "Start Training"
+  }
+}

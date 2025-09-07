@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2196F3">
+    <title>PelvicFit Mini - 盆底肌锻炼</title>
+    
+    <!-- PWA配置 -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="js/app.js" as="script">
+</head>
+<body>
+    <!-- 加载屏幕 -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-icon">🫁</div>
+            <div class="loading-text">PelvicFit Mini</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- 主应用容器 -->
+    <div id="app" class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="app-header">
+            <button id="back-btn" class="header-btn back-btn" style="display: none;">
+                <span>◄</span>
+            </button>
+            <h1 id="page-title" class="page-title">PelvicFit Mini</h1>
+            <button id="lang-btn" class="header-btn lang-btn">
+                <span id="lang-text">EN</span>
+            </button>
+        </header>
+
+        <!-- 主内容区域 -->
+        <main class="app-main">
+            <!-- 首页 -->
+            <div id="home-page" class="page active">
+                <div class="welcome-section">
+                    <div class="welcome-icon">🫁</div>
+                    <h2 data-i18n="welcome.title">欢迎使用盆底肌训练</h2>
+                    <p data-i18n="welcome.subtitle">专业的盆底肌锻炼指导，帮助您改善健康</p>
+                </div>
+
+                <div class="action-section">
+                    <!-- 快速开始按钮 -->
+                    <button id="quick-start-btn" class="primary-btn">
+                        <span data-i18n="home.quick_start">🎯 快速开始（初级）</span>
+                    </button>
+
+                    <!-- 计划选择区域 -->
+                    <div class="plans-selection">
+                        <h3 data-i18n="home.choose_plan">📋 选择其他计划：</h3>
+                        
+                        <div class="home-plans-grid">
+                            <div class="home-plan-card" data-plan="beginner">
+                                <div class="plan-level">🟢</div>
+                                <div class="plan-info">
+                                    <h4 data-i18n="plans.beginner.title">初级</h4>
+                                    <p class="plan-duration" id="beginner-duration">5分钟</p>
+                                    <p class="plan-desc" data-i18n="plans.beginner.desc">收缩3秒，放松3秒</p>
+                                </div>
+                            </div>
+
+                            <div class="home-plan-card" data-plan="intermediate">
+                                <div class="plan-level">🟡</div>
+                                <div class="plan-info">
+                                    <h4 data-i18n="plans.intermediate.title">进阶</h4>
+                                    <p class="plan-duration" id="intermediate-duration">8分钟</p>
+                                    <p class="plan-desc" data-i18n="plans.intermediate.desc">收缩5秒，放松5秒</p>
+                                </div>
+                            </div>
+
+                            <div class="home-plan-card" data-plan="advanced">
+                                <div class="plan-level">🔴</div>
+                                <div class="plan-info">
+                                    <h4 data-i18n="plans.advanced.title">专业</h4>
+                                    <p class="plan-duration" id="advanced-duration">12分钟</p>
+                                    <p class="plan-desc" data-i18n="plans.advanced.desc">收缩8秒，放松8秒</p>
+                                </div>
+                            </div>
+
+                            <div class="home-plan-card custom-plan" id="custom-plan-card">
+                                <div class="plan-level">⚙️</div>
+                                <div class="plan-info">
+                                    <h4 data-i18n="home.custom_plan">自定义</h4>
+                                    <p class="plan-duration">灵活时间</p>
+                                    <p class="plan-desc" data-i18n="home.custom_desc">设置专属参数</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 次要功能 -->
+                    <div class="secondary-actions">
+                        <button id="stats-btn" class="secondary-btn">
+                            <span class="btn-icon">📊</span>
+                            <span data-i18n="home.progress">进度</span>
+                        </button>
+                        <button id="settings-btn" class="secondary-btn">
+                            <span class="btn-icon">⚙️</span>
+                            <span data-i18n="home.settings">设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 训练计划页 -->
+            <div id="plans-page" class="page">
+                <div class="plans-header">
+                    <h2 data-i18n="plans.title">训练计划</h2>
+                    <button id="custom-plan-btn" class="text-btn">
+                        <span data-i18n="plans.custom">+ 自定义</span>
+                    </button>
+                </div>
+
+                <div class="plans-list">
+                    <div class="plan-card" data-plan="beginner">
+                        <div class="plan-header">
+                            <span class="plan-level">🟢</span>
+                            <h3 data-i18n="plans.beginner.title">初学者</h3>
+                            <span class="plan-duration">5 min</span>
+                        </div>
+                        <div class="plan-details">
+                            <p data-i18n="plans.beginner.desc">收缩3秒，放松3秒</p>
+                            <p data-i18n="plans.beginner.sets">10次 × 3组</p>
+                        </div>
+                    </div>
+
+                    <div class="plan-card" data-plan="intermediate">
+                        <div class="plan-header">
+                            <span class="plan-level">🟡</span>
+                            <h3 data-i18n="plans.intermediate.title">进阶者</h3>
+                            <span class="plan-duration">8 min</span>
+                        </div>
+                        <div class="plan-details">
+                            <p data-i18n="plans.intermediate.desc">收缩5秒，放松5秒</p>
+                            <p data-i18n="plans.intermediate.sets">15次 × 3组</p>
+                        </div>
+                    </div>
+
+                    <div class="plan-card" data-plan="advanced">
+                        <div class="plan-header">
+                            <span class="plan-level">🔴</span>
+                            <h3 data-i18n="plans.advanced.title">专业级</h3>
+                            <span class="plan-duration">12 min</span>
+                        </div>
+                        <div class="plan-details">
+                            <p data-i18n="plans.advanced.desc">收缩8秒，放松8秒</p>
+                            <p data-i18n="plans.advanced.sets">20次 × 4组</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 训练页面 -->
+            <div id="exercise-page" class="page">
+                <div class="exercise-header">
+                    <div class="exercise-controls">
+                        <button id="sound-toggle" class="control-btn">🔊</button>
+                        <button id="vibration-toggle" class="control-btn">📳</button>
+                    </div>
+                </div>
+
+                <div class="exercise-main">
+                    <div class="phase-indicator">
+                        <span id="phase-text" data-i18n="exercise.prepare">准备开始</span>
+                    </div>
+
+                    <div class="timer-circle">
+                        <svg class="progress-ring" width="200" height="200">
+                            <circle cx="100" cy="100" r="85" stroke="#E0E0E0" stroke-width="10" fill="none"/>
+                            <circle id="progress-circle" cx="100" cy="100" r="85" stroke="#2196F3" stroke-width="10" fill="none" stroke-dasharray="534.07" stroke-dashoffset="534.07"/>
+                        </svg>
+                        <div class="timer-content">
+                            <div id="timer-text" class="timer-text">0s</div>
+                            <div id="timer-total" class="timer-total">/ 0s</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-status">
+                        <div id="status-text" class="status-text" data-i18n="exercise.ready">准备就绪</div>
+                    </div>
+
+                    <div class="exercise-controls-main">
+                        <button id="pause-btn" class="control-btn-main" style="display: none;">
+                            <span>⏸️</span>
+                            <span data-i18n="exercise.pause">暂停</span>
+                        </button>
+                        <button id="start-btn" class="control-btn-main primary">
+                            <span>▶️</span>
+                            <span data-i18n="exercise.start">开始</span>
+                        </button>
+                        <button id="stop-btn" class="control-btn-main">
+                            <span>⏹️</span>
+                            <span data-i18n="exercise.stop">停止</span>
+                        </button>
+                    </div>
+
+                    <div class="set-info">
+                        <span data-i18n="exercise.set_info">第</span>
+                        <span id="current-set">1</span>
+                        <span data-i18n="exercise.set_of">组 / 共</span>
+                        <span id="total-sets">3</span>
+                        <span data-i18n="exercise.sets">组</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 统计页面 -->
+            <div id="stats-page" class="page">
+                <div class="stats-header">
+                    <h2 data-i18n="stats.title">训练统计</h2>
+                    <select id="stats-period" class="period-selector">
+                        <option value="week" data-i18n="stats.week">本周</option>
+                        <option value="month" data-i18n="stats.month">本月</option>
+                        <option value="year" data-i18n="stats.year">本年</option>
+                    </select>
+                </div>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-value" id="sessions-count">0</div>
+                        <div class="stat-label" data-i18n="stats.sessions">训练次数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-duration">0</div>
+                        <div class="stat-label" data-i18n="stats.duration">总时长(分)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="streak-days">0</div>
+                        <div class="stat-label" data-i18n="stats.streak">连续天数</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="progress-chart" width="300" height="200"></canvas>
+                </div>
+
+                <div class="achievements-section">
+                    <h3 data-i18n="stats.achievements">成就解锁</h3>
+                    <div id="achievements-list" class="achievements-list">
+                        <!-- 成就项目将由JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设置页面 -->
+            <div id="settings-page" class="page">
+                <h2 data-i18n="settings.title">设置</h2>
+
+                <div class="settings-section">
+                    <h3 data-i18n="settings.general">常规设置</h3>
+                    
+                    <div class="setting-item">
+                        <label data-i18n="settings.sound">声音提醒</label>
+                        <input type="checkbox" id="sound-setting" class="toggle-switch">
+                    </div>
+
+                    <div class="setting-item">
+                        <label data-i18n="settings.vibration">震动反馈</label>
+                        <input type="checkbox" id="vibration-setting" class="toggle-switch">
+                    </div>
+
+                    <div class="setting-item">
+                        <label data-i18n="settings.reminder">每日提醒</label>
+                        <input type="time" id="reminder-time" class="time-input" value="09:00">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 data-i18n="settings.data">数据管理</h3>
+                    
+                    <button id="export-data-btn" class="setting-btn">
+                        <span data-i18n="settings.export">导出数据</span>
+                    </button>
+
+                    <button id="clear-data-btn" class="setting-btn danger">
+                        <span data-i18n="settings.clear">清除数据</span>
+                    </button>
+                </div>
+
+                <div class="settings-section">
+                    <h3 data-i18n="settings.about">关于</h3>
+                    <div class="about-info">
+                        <p data-i18n="settings.version">版本: 1.0.0</p>
+                        <p data-i18n="settings.privacy">完全匿名，数据仅存储在本地</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部导航栏 -->
+        <nav class="app-nav">
+            <button class="nav-btn active" data-page="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label" data-i18n="nav.home">首页</span>
+            </button>
+            <button class="nav-btn" data-page="plans">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label" data-i18n="nav.plans">计划</span>
+            </button>
+            <button class="nav-btn" data-page="stats">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label" data-i18n="nav.stats">统计</span>
+            </button>
+            <button class="nav-btn" data-page="settings">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label" data-i18n="nav.settings">设置</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- 确认对话框 -->
+    <div id="confirm-dialog" class="dialog-overlay" style="display: none;">
+        <div class="dialog">
+            <h3 id="dialog-title">确认</h3>
+            <p id="dialog-message">确定要执行此操作吗？</p>
+            <div class="dialog-buttons">
+                <button id="dialog-cancel" class="dialog-btn secondary">取消</button>
+                <button id="dialog-confirm" class="dialog-btn primary">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自定义计划对话框 -->
+    <div id="custom-plan-dialog" class="dialog-overlay" style="display: none;">
+        <div class="dialog custom-dialog">
+            <h3 data-i18n="custom.title">⚙️ 自定义您的训练计划</h3>
+            
+            <div class="custom-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-i18n="custom.contract_time">收缩时间</label>
+                        <select id="custom-contract-time">
+                            <option value="2">2秒</option>
+                            <option value="3" selected>3秒</option>
+                            <option value="4">4秒</option>
+                            <option value="5">5秒</option>
+                            <option value="6">6秒</option>
+                            <option value="8">8秒</option>
+                            <option value="10">10秒</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="custom.relax_time">放松时间</label>
+                        <select id="custom-relax-time">
+                            <option value="2">2秒</option>
+                            <option value="3" selected>3秒</option>
+                            <option value="4">4秒</option>
+                            <option value="5">5秒</option>
+                            <option value="6">6秒</option>
+                            <option value="8">8秒</option>
+                            <option value="10">10秒</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-i18n="custom.repetitions">重复次数</label>
+                        <input type="number" id="custom-reps" min="5" max="30" value="10" />
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="custom.sets">组数</label>
+                        <select id="custom-sets">
+                            <option value="1">1组</option>
+                            <option value="2">2组</option>
+                            <option value="3" selected>3组</option>
+                            <option value="4">4组</option>
+                            <option value="5">5组</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label data-i18n="custom.rest_time">组间休息时间</label>
+                        <input type="number" id="custom-rest" min="15" max="120" step="15" value="30" />
+                        <span>秒</span>
+                    </div>
+                </div>
+
+                <div class="duration-preview">
+                    <span data-i18n="custom.estimated_duration">预计时长: </span>
+                    <strong id="custom-duration-preview">~5分钟</strong>
+                </div>
+            </div>
+
+            <div class="dialog-buttons">
+                <button id="custom-dialog-cancel" class="dialog-btn secondary" data-i18n="custom.cancel">取消</button>
+                <button id="custom-dialog-start" class="dialog-btn primary" data-i18n="custom.start">开始训练</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript文件 -->
+    <script src="js/i18n.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/exercise.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

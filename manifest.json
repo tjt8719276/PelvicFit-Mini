@@ -1,0 +1,174 @@
+{
+  "name": "PelvicFit Mini - 盆底肌锻炼",
+  "short_name": "PelvicFit Mini",
+  "description": "专业的盆底肌锻炼指导应用，支持多种训练计划和进度追踪",
+  "version": "1.0.0",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#2196F3",
+  "background_color": "#FAFAFA",
+  "scope": "./",
+  "lang": "zh-CN",
+  
+  "icons": [
+    {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "categories": ["health", "fitness", "medical", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "assets/screenshots/home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "label": "应用主页面"
+    },
+    {
+      "src": "assets/screenshots/exercise.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "label": "训练界面"
+    },
+    {
+      "src": "assets/screenshots/stats.png",
+      "sizes": "390x844", 
+      "type": "image/png",
+      "label": "统计页面"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "开始训练",
+      "short_name": "训练",
+      "description": "快速开始盆底肌锻炼",
+      "url": "./index.html#exercise",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-exercise.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "查看进度",
+      "short_name": "进度", 
+      "description": "查看训练统计和进度",
+      "url": "./index.html#stats",
+      "icons": [
+        {
+          "src": "assets/icons/shortcut-stats.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+
+  "share_target": {
+    "action": "./index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+
+  "protocol_handlers": [
+    {
+      "protocol": "web+pelvicfit",
+      "url": "./index.html?action=%s"
+    }
+  ],
+
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "./index.html"
+    }
+  ],
+
+  "file_handlers": [
+    {
+      "action": "./index.html?import=true",
+      "accept": {
+        "application/json": [".json"]
+      },
+      "launch_type": "single-client"
+    }
+  ],
+
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+
+  "capture_links": "existing-client-navigate",
+  
+  "permissions": [
+    "notifications"
+  ],
+
+  "features": [
+    "cross-origin-isolated"
+  ],
+
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+
+  "display_override": [
+    "window-controls-overlay",
+    "minimal-ui",
+    "browser"
+  ]
+}
