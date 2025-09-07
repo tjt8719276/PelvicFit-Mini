@@ -17,7 +17,7 @@ PelvicFit Mini 是一个专注于盆底肌(PC肌)锻炼的移动端网页应用�
 
 ## 📁 项目结构
 
-```
+```11
 PelvicFit Mini/
 ├── index.html              # 主页面
 ├── manifest.json           # PWA配置
